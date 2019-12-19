@@ -6,6 +6,7 @@ module Gmaps4rails
     attr_reader :address, :language, :raw, :protocol
 
     def initialize(address, options = {})
+      return unless address.present?
       raise Gmaps4rails::GeocodeInvalidQuery, "You must provide an address" if address.empty?
 
       @address  = address
